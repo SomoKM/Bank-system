@@ -37,33 +37,32 @@ while True:
 #sending money
     elif choose==4:
         
-         while True:
              #ask for acc number 
-            transferacc=int(input("Enter account no:"))
+            transferacc=input("Enter account no:")
             
             if transferacc.isdigit() and 7<=len(transferacc)<=10:
-               # print("Account number valid")
+                amount=float(input("Enter an amount to transfer:R "))
                 break
             else:
-                print("Inavlid account number.Must be a 7-10 digit number")
-                continue #ask again
-            amount=float(input("Enter an amount to transfer:R "))
+                print("Inavalid account number.Must be a 7-10 digit number")
+               # continue #ask again
 
                 #confirming
-         while True:
-            confirm=input(f"Confirm transaction of R{amount} to account number:{transferacc}? (y/n): ")
+            while True:
+                confirm=input(f"Confirm transaction of R{amount} to account number:{transferacc}? (y/n): ")
 
-            if confirm =="y" and amount>0:
-                    balance=balance-amount
-                    print("Transaction confirmed!")
-                    print("Your new balance is:R",balance)
+                if confirm =="y" and amount>0:
+                        balance=balance-amount
+                        print("Transaction confirmed!")
+                        print("Your new balance is:R",balance)
+                        break
+
+                elif confirm =="n":
+                    print("Trasaction terminated")
                     break
 
-            elif confirm =="n":
-                print("Trasaction terminated")
-                break
-            else:
-                print("Invalid imput.Enter a y (yes) or  (no):")
+                else:
+                    print("Invalid imput.Enter a y(yes) or n(no):")
                 
     else:
         break
